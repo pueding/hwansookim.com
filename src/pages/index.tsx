@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
         <div className="container py-20 flex flex-col">
           {/* Avatar */}
           <div className="avatar mb-10">
-            <div className="w-24 rounded-full">
+            <div className="w-52 rounded-full">
               <img src="/imgs/profile.png" />
             </div>
           </div>
@@ -63,18 +63,34 @@ export default function Home(): JSX.Element {
           </div>
           {/* Carousel */}
           <div className="mb-10">
-            <div className="carousel h-56 w-full">
+            <div className="carousel h-56 w-full space-x-8">
               <div className="carousel-item">
-                <img src="/imgs/futureplay.jpg" alt="Burger" />
+                <img
+                  src="/imgs/futureplay.jpg"
+                  alt="Futureplay"
+                  className="rounded-box"
+                />
               </div>
               <div className="carousel-item">
-                <img src="/imgs/honeybees.jpg" alt="Burger" />
+                <img
+                  src="/imgs/honeybees.jpg"
+                  alt="Honeybees"
+                  className="rounded-box"
+                />
               </div>
               <div className="carousel-item">
-                <img src="/imgs/wahome.jpg" alt="Burger" />
+                <img
+                  src="/imgs/wahome.jpg"
+                  alt="Wahome"
+                  className="rounded-box"
+                />
               </div>
               <div className="carousel-item">
-                <img src="/imgs/8rowing.jpg" alt="Burger" />
+                <img
+                  src="/imgs/8rowing.jpg"
+                  alt="8rowing"
+                  className="rounded-box"
+                />
               </div>
             </div>
           </div>

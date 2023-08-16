@@ -26,6 +26,27 @@ import styles from "./index.module.css";
 //   );
 // }
 
+function HistoryItem(props: {
+  title: string;
+  date: string;
+  location: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div className="prose flex mb-10">
+      <div className="min-w-80 flex-none mr-10">
+        <p className="prose-gray my-0">{props.date}</p>
+        <p className="prose-gray my-0">{props.location}</p>
+      </div>
+
+      <div className="flex-1">
+        <h3 className="mt-0">{props.title}</h3>
+        {props.children}
+      </div>
+    </div>
+  );
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -110,15 +131,35 @@ export default function Home(): JSX.Element {
           </div>
           {/* History */}
           <div>
-            <div className="prose">
-              <h3>
-                Feb 2023 ~ Current - Director of Engineering at STCLab, Inc
-              </h3>
+            <HistoryItem
+              title="Director of Engineering at STCLab, Inc"
+              date="Feb 2023 ~ Current"
+              location="Seoul, Korea"
+            >
               <p>
                 Leading and developing cloud-native products for autoscaling
                 across various platforms using Rust.
               </p>
-            </div>
+            </HistoryItem>
+            <HistoryItem
+              title="CTO & Director at FuturePlay"
+              date="Feb 2023 ~ Current"
+              location="Seoul, Korea"
+            >
+              <p>
+                • Led and developed the digital transformation of the startup
+                accelerator developing online services with our dev team.
+              </p>
+              <p>
+                • Enhanced the software development and the lifecycle by using
+                trending tech stacks and methodologies like Relay(GraphQL) with
+                Hasura, AWS serverless stacks, and BDD(Cucumber.js)
+              </p>
+              <p>
+                • Provided technical consulting for portfolio companies we've
+                invested in to help their growth.
+              </p>
+            </HistoryItem>
           </div>
         </div>
       </main>

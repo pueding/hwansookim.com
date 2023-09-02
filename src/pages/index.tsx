@@ -34,7 +34,7 @@ function HistoryItem(props: {
 }) {
   return (
     <div className="prose flex mb-10">
-      <div className="min-w-80 flex-none mr-10">
+      <div className="w-40 flex-none mr-10">
         <p className="prose-gray my-0">{props.date}</p>
         <p className="prose-gray my-0">{props.location}</p>
       </div>
@@ -108,7 +108,7 @@ export default function Home(): JSX.Element {
               </div>
               <div className="carousel-item">
                 <img
-                  src="/imgs/8rowing.jpg"
+                  src="/imgs/8rowing-2.jpg"
                   alt="8rowing"
                   className="rounded-box"
                 />
@@ -116,7 +116,7 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           {/* Stats */}
-          <div className="stats shadow w-[50rem] mb-10">
+          {/* <div className="stats shadow w-[50rem] mb-10">
             <div className="stat">
               <div className="stat-title">Companies I Joined</div>
               <div className="stat-value">5</div>
@@ -128,7 +128,7 @@ export default function Home(): JSX.Element {
               <div className="stat-value">4</div>
               <div className="stat-desc">From Jul 2012</div>
             </div>
-          </div>
+          </div> */}
           {/* History */}
           <div>
             <HistoryItem
@@ -143,7 +143,7 @@ export default function Home(): JSX.Element {
             </HistoryItem>
             <HistoryItem
               title="CTO & Director at FuturePlay"
-              date="Feb 2023 ~ Current"
+              date="Jan 2021 ~ Jan 2023"
               location="Seoul, Korea"
             >
               <p>
@@ -160,6 +160,20 @@ export default function Home(): JSX.Element {
                 invested in to help their growth.
               </p>
             </HistoryItem>
+          </div>
+          <div>
+            {/* Read more on Linkedin */}
+            <div className="prose prose-gray max-w-none mb-10">
+              <p className="">
+                <a
+                  href="https://linkedin.com/in/hwansookim"
+                  target="_blank"
+                  className="text-blue-500"
+                >
+                  Read more on Linkedin
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </main>

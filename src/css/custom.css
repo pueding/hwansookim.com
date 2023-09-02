@@ -32,3 +32,8 @@
   --ifm-color-primary-lightest: #bbd0ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.avatar__photo-link {
+  max-width: 50px;
+  max-height: 50px;
+}

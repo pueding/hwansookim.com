@@ -43,6 +43,24 @@ const config = {
         },
       };
     },
+    [
+      "@docusaurus/plugin-content-blog",
+      {
+        /**
+         * Required for any multi-instance plugin
+         */
+        id: "for-my-son-and-daughter",
+        /**
+         * URL route for the blog section of your site.
+         * *DO NOT* include a trailing slash.
+         */
+        routeBasePath: "korean",
+        /**
+         * Path to data on filesystem relative to site dir.
+         */
+        path: "./korean",
+      },
+    ],
   ],
 
   presets: [
@@ -94,11 +112,12 @@ const config = {
             label: "Tutorial",
           },
           { to: "/blog", label: "Blog", position: "left" },
-          // {
-          //   href: "https://github.com/facebook/docusaurus",
-          //   label: "GitHub",
-          //   position: "right",
-          // },
+          { to: "/korean", label: "For My Children(Korean)", position: "left" },
+          {
+            href: "https://github.com/pueding",
+            label: "GitHub",
+            position: "right",
+          },
         ],
       },
       // footer: {

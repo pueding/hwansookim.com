@@ -1,30 +1,6 @@
 import React from "react";
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
-
-import styles from "./index.module.css";
-
-// function HomepageHeader() {
-//   const {siteConfig} = useDocusaurusContext();
-//   return (
-//     <header className={clsx('hero hero--primary','bg-blue-500', styles.heroBanner)}>
-//       <div className="container">
-//         <h1 className="hero__title">{siteConfig.title}</h1>
-//         <p className="hero__subtitle">{siteConfig.tagline}</p>
-//         <div className={styles.buttons}>
-//           <Link
-//             className="button button--secondary button--lg"
-//             to="/docs/intro">
-//             Docusaurus Tutorial - 5min ⏱️
-//           </Link>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
 
 function HistoryItem(props: {
   title: string;
@@ -38,7 +14,7 @@ function HistoryItem(props: {
         <h3 className="mt-0 mb-1 text-lg leading-5">{props.title}</h3>
         <div className="flex flex-row">
           <p className="prose-gray my-0 md:text-sm text-xs">{props.date}</p>
-          <p className="prose-gray my-0 md:text-sm text-xs md:ml-0 ml-4">
+          <p className="prose-gray my-0 md:text-sm text-xs ml-4">
             {props.location}
           </p>
         </div>

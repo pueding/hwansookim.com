@@ -141,6 +141,12 @@ export default function Home(): JSX.Element {
               location="Seoul, Korea"
             >
               <p className="my-0">
+                • Creator of the open-source project called Wave Autoscale -{" "}
+                <a href="https://waveautoscale.com">
+                  https://waveautoscale.com
+                </a>
+              </p>
+              <p className="my-0">
                 • Leading and developing cloud-native products for autoscaling
                 across various platforms using Rust.
               </p>

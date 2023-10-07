@@ -1,19 +1,15 @@
 {
     "redirects": [
         {
-            "source": "/2021/:path*",
-            "destination": "/blog/2021/:path*",
+            "source": "/:year/:month/:day/:title/",
+            "destination": "/blog/:year/:month/:day/:title",
             "permanent": true
         },
         {
-            "source": "/2022/:path*",
-            "destination": "/blog/2022/:path*",
+            "source": "/:year/:month/:day/:title",
+            "destination": "/blog/:year/:month/:day/:title",
             "permanent": true
-        },
-        {
-            "source": "/2023/:path*",
-            "destination": "/blog/2023/:path*",
-            "permanent": true
+
         }
     ]
 }

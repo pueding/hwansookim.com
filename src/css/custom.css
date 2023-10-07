@@ -3,11 +3,10 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
- 
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #1d63ff;
@@ -22,7 +21,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #1d63ff;
   --ifm-color-primary-dark: #0c2866;
   --ifm-color-primary-darker: #091e4c;
@@ -36,4 +35,47 @@
 .avatar__photo-link {
   max-width: 50px;
   max-height: 50px;
+}
+
+.navbar__items.navbar__items--right a svg {
+  display: none !important;
+}
+
+.container .row main {
+  flex: 0 0 calc(6 / 12 * 100%) !important;
+}
+
+@media (max-width: 996px) {
+  .container .row main {
+    flex: 0 0 calc(12 / 12 * 100%) !important;
+  }
+}
+
+h1 {
+  font-size: 2rem !important;
+  font-weight: bold;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+.markdown p {
+  line-height: 2;
+}
+
+.markdown ul {
+  list-style: circle;
+  padding-left: 1.5rem;
+}
+
+.markdown li > p {
+  margin: 0;
+}
+
+.markdown blockquote {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

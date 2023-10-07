@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
             </div>
             {/* Title */}
             <div className="prose prose-gray max-w-none md:ml-10 md:text-left text-center">
-              <h1 className="my-0">Hwansoo Kim</h1>
+              <h1 className="my-0 mb-4">Hwansoo Kim</h1>
               <h3 className="md:mt-1 my-0">
                 who loves software development and people around me and
               </h3>
@@ -57,8 +57,8 @@ export default function Home(): JSX.Element {
                   <InterestingIcon src="/imgs/rust-icon.png" />
                   <InterestingIcon src="/imgs/cncf.jpeg" />
                   <InterestingIcon src="/imgs/k8s.png" />
-                  <InterestingIcon src="/imgs/gc.png" />
                   <InterestingIcon src="/imgs/aws.png" />
+                  <InterestingIcon src="/imgs/gc.png" />
                 </div>
               </div>
             </div>

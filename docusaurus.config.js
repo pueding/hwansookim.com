@@ -54,11 +54,14 @@ const config = {
          * URL route for the blog section of your site.
          * *DO NOT* include a trailing slash.
          */
-        routeBasePath: "korean",
+        routeBasePath: "blog-for-my-children",
         /**
          * Path to data on filesystem relative to site dir.
          */
-        path: "./korean",
+        path: "./blog-for-my-children",
+        blogSidebarCount: "ALL",
+        postsPerPage: 1,
+        blogSidebarTitle: "Blog for My Children",
       },
     ],
   ],
@@ -81,6 +84,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          blogSidebarCount: "ALL",
+          postsPerPage: 1,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -105,17 +110,26 @@ const config = {
         //   src: "img/logo.svg",
         // },
         items: [
+          // {
+          //   type: "docSidebar",
+          //   sidebarId: "tutorialSidebar",
+          //   position: "left",
+          //   label: "Tutorial",
+          // },
           {
-            type: "docSidebar",
-            sidebarId: "tutorialSidebar",
+            to: "/blog-for-my-children/2021/06/28/preface",
+            label: "Blog for My Children(Korean)",
             position: "left",
-            label: "Tutorial",
           },
-          { to: "/blog", label: "Blog", position: "left" },
-          { to: "/korean", label: "For My Children(Korean)", position: "left" },
+          // { to: "/korean", label: "For My Children(Korean)", position: "left" },
+          {
+            href: "https://linkedin.com/in/hwansookim",
+            label: "LinkedIn",
+            position: "right",
+          },
           {
             href: "https://github.com/pueding",
-            label: "GitHub",
+            label: "Github",
             position: "right",
           },
         ],

@@ -2,7 +2,7 @@
     "redirects": [
         {
             "source": "/2023/03/30/conversation-problem-centric",
-            "to": "/blog/conversation-problem-centric",
+            "destination": "/blog/conversation-problem-centric",
             "permanent": true
         }
     ]

@@ -51,7 +51,7 @@ export default function Home(): JSX.Element {
               <h3 className="md:mt-1 my-0">
                 who loves software development and people around me and
               </h3>
-              <div className="mt-1 flex md:flex-row flex-col">
+              <div className="mt-2 flex md:flex-row flex-col">
                 <h3 className="my-0">is interested in</h3>
                 <div className="flex flex-1 md:justify-start justify-center items-center ml-4 not-prose">
                   <InterestingIcon src="/imgs/rust-icon.png" />

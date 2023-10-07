@@ -1,8 +1,18 @@
 {
     "redirects": [
         {
-            "source": "/2023/03/30/conversation-problem-centric*",
-            "destination": "/blog/conversation-problem-centric",
+            "source": "/2021/:path*",
+            "destination": "/blog/2021/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/2022/:path*",
+            "destination": "/blog/2022/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/2023/:path*",
+            "destination": "/blog/2023/:path*",
             "permanent": true
         }
     ]

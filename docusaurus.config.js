@@ -118,13 +118,13 @@ const config = {
           // },
           {
             to: "/blog-for-my-children/2021/06/28/preface",
-            label: "Blog for My Children(Korean)",
+            label: "Blog (Korean)",
             position: "left",
           },
           // { to: "/korean", label: "For My Children(Korean)", position: "left" },
           {
             href: "https://linkedin.com/in/hwansookim",
-            label: "LinkedIn",
+            label: "Linkedin",
             position: "right",
           },
           {

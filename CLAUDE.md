@@ -39,20 +39,24 @@ pages/
 │   ├── index.mdx              # Blog intro page
 │   ├── 2021/_meta.tsx         # Year-based organization
 │   ├── 2022/_meta.tsx
+│   ├── 2023/_meta.tsx
+│   ├── 2024/_meta.tsx
+│   ├── 2025/_meta.tsx
 │   └── YYYY/MM/DD/*.md        # Blog posts in date folders
-└── posts/                      # English blog posts (MDX format)
-    └── *.mdx                   # Individual post files
+└── posts/                      # Nextra blog posts (appears on home feed)
+    └── *.mdx                   # Individual post files (content is Korean)
 ```
 
 ### Configuration Files
 - `next.config.mjs` - Next.js + Nextra configuration with URL redirects for Korean posts
 - `theme.config.tsx` - Nextra theme configuration (navigation, footer, meta tags)
 - `tailwind.config.js` - Tailwind + DaisyUI styling (light theme only)
+  - Note: content path is `./src/**/*` but pages are in `./pages/**/*` - may need fixing if Tailwind classes don't apply
 - `pages/_app.tsx` - Next.js app wrapper with global CSS
 
 ### Content Organization
 - **Korean Blog**: Posts in `/blog-for-my-children/` organized chronologically by year/month/day
-- **English Posts**: Individual MDX files in `/pages/posts/`
+- **Nextra Posts**: Individual MDX files in `/pages/posts/` (shown on home feed)
 - **Navigation**: Managed through `_meta.tsx` files for hierarchical organization
 - **Manual Index**: Korean blog index is manually maintained in `korean-blog.mdx`
 
@@ -65,9 +69,17 @@ pages/
 
 ### Working with Blog Posts
 - Korean posts: Create in appropriate year/month/day folder under `blog-for-my-children/`
-- English posts: Create as individual MDX files in `pages/posts/`
+- Nextra posts: Create as individual MDX files in `pages/posts/`
 - Update `korean-blog.mdx` manually when adding new Korean posts
-- Update year `_meta.tsx` files when adding new months/posts
+- Update year `_meta.tsx` files when adding new months/posts using this pattern:
+  ```tsx
+  export default {
+    "08": {
+      title: "August 2024",
+      display: "children"
+    }
+  }
+  ```
 - Use frontmatter for post metadata (title, date, description, etc.)
 
 ### Styling

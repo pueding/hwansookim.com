@@ -5,13 +5,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is Hwansoo Kim's personal blog website built with:
-- **Next.js 15.5.2** - React framework
-- **Nextra 3.3.1** - Static site generator with nextra-theme-blog
+- **Next.js 15.5.2** - React framework with App Router
+- **Nextra 4.6.1** - Static site generator with nextra-theme-blog
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework with DaisyUI components
 - **MDX** - Markdown with JSX components
-
-The site is currently transitioning from Docusaurus to Nextra (note: README.md still references Docusaurus commands but they are outdated).
 
 ## Commands
 
@@ -22,67 +20,85 @@ The site is currently transitioning from Docusaurus to Nextra (note: README.md s
 - `npm run typecheck` - Run TypeScript type checking
 
 ### Important Notes
-- The README.md contains outdated Docusaurus commands (yarn start, yarn build) - ignore these
-- Use npm commands from package.json instead
 - No testing framework is currently configured
 - No linting is configured
 
 ## Architecture
 
-### Site Structure
+### Site Structure (Nextra 4 App Router)
 ```
-pages/
-├── index.mdx                    # Home page (About section)
-├── korean-blog.mdx             # Korean blog index with manual post list
-├── blog-for-my-children/       # Korean blog posts organized by year
-│   ├── _meta.tsx              # Navigation metadata
-│   ├── index.mdx              # Blog intro page
-│   ├── 2021/_meta.tsx         # Year-based organization
-│   ├── 2022/_meta.tsx
-│   ├── 2023/_meta.tsx
-│   ├── 2024/_meta.tsx
-│   ├── 2025/_meta.tsx
-│   └── YYYY/MM/DD/*.md        # Blog posts in date folders
-└── posts/                      # Nextra blog posts (appears on home feed)
-    └── *.mdx                   # Individual post files (content is Korean)
+app/
+├── layout.tsx                           # Root layout with Nextra theme components
+├── page.mdx                             # Home page (About section)
+├── _meta.js                             # Navigation metadata for app root
+├── korean-blog/
+│   └── page.mdx                         # Korean blog index with manual post list
+├── blog-for-my-children/                # Korean blog posts organized by year
+│   ├── page.mdx                         # Blog intro page
+│   ├── _meta.js                         # Navigation metadata
+│   └── YYYY/MM/DD/[post-name]/
+│       └── page.mdx                     # Individual blog posts
+└── posts/                               # English posts (appears on home feed)
+    └── [post-name]/
+        └── page.mdx                     # Individual post files
+
+mdx-components.tsx                       # MDX component configuration (project root)
 ```
 
 ### Configuration Files
-- `next.config.mjs` - Next.js + Nextra configuration with URL redirects for Korean posts
-- `theme.config.tsx` - Nextra theme configuration (navigation, footer, meta tags)
-- `tailwind.config.js` - Tailwind + DaisyUI styling (light theme only)
-  - Note: content path is `./src/**/*` but pages are in `./pages/**/*` - may need fixing if Tailwind classes don't apply
-- `pages/_app.tsx` - Next.js app wrapper with global CSS
+- `next.config.mjs` - Next.js + Nextra configuration with URL redirects
+- `mdx-components.tsx` - MDX component configuration for Nextra 4
+- `tailwind.config.js` - Tailwind + DaisyUI styling
+- `tsconfig.json` - TypeScript config (moduleResolution: "bundler" for Nextra 4)
 
 ### Content Organization
-- **Korean Blog**: Posts in `/blog-for-my-children/` organized chronologically by year/month/day
-- **Nextra Posts**: Individual MDX files in `/pages/posts/` (shown on home feed)
-- **Navigation**: Managed through `_meta.tsx` files for hierarchical organization
-- **Manual Index**: Korean blog index is manually maintained in `korean-blog.mdx`
+- **Korean Blog**: Posts in `/blog-for-my-children/YYYY/MM/DD/[post-name]/page.mdx`
+- **English Posts**: Posts in `/posts/[post-name]/page.mdx`
+- **Navigation**: Managed through `_meta.js` files
+- **Manual Index**: Korean blog index is manually maintained in `korean-blog/page.mdx`
 
 ### Key Features
 - Bilingual content (Korean primary, some English)
 - Year-based blog post organization with metadata navigation
 - URL redirects for posts with Korean characters in filenames
-- No dark mode (disabled in theme.config.tsx)
-- External links to GitHub and LinkedIn in navigation
+- External links to GitHub and LinkedIn in navigation (auto-open in new tabs)
 
 ### Working with Blog Posts
-- Korean posts: Create in appropriate year/month/day folder under `blog-for-my-children/`
-- Nextra posts: Create as individual MDX files in `pages/posts/`
-- Update `korean-blog.mdx` manually when adding new Korean posts
-- Update year `_meta.tsx` files when adding new months/posts using this pattern:
-  ```tsx
-  export default {
-    "08": {
-      title: "August 2024",
-      display: "children"
-    }
-  }
-  ```
-- Use frontmatter for post metadata (title, date, description, etc.)
+
+#### Creating Korean Posts
+1. Create folder: `app/blog-for-my-children/YYYY/MM/DD/[post-name]/`
+2. Create `page.mdx` with frontmatter:
+   ```yaml
+   ---
+   title: Post Title
+   date: YYYY/MM/DD
+   author: Hwansoo Kim
+   ---
+   ```
+3. Copy any images to the same folder
+4. Update `korean-blog/page.mdx` manually with new post link
+
+#### Creating English Posts
+1. Create folder: `app/posts/[post-name]/`
+2. Create `page.mdx` with frontmatter:
+   ```yaml
+   ---
+   title: Post Title
+   date: YYYY/MM/DD
+   description: Short description
+   tag: tag1, tag2
+   author: Hwansoo Kim
+   ---
+   ```
+
+### Nextra 4 Notes
+- Uses App Router exclusively (no Pages Router)
+- `_meta.js` files use ESM exports (not `_meta.tsx`)
+- `newWindow` property removed from external links - they auto-open in new tabs
+- Date format: `YYYY/MM/DD` or `YYYY-MM-DD`
+- tsconfig.json moduleResolution must be "bundler"
 
 ### Styling
-- Global styles: `styles/globals.css` (minimal - just Tailwind imports)
+- Global styles: `styles/globals.css`
+- Theme styles: `nextra-theme-blog/style.css` (imported in layout.tsx)
 - Component styling: Uses Tailwind CSS utilities with DaisyUI components
-- Theme: Light theme only, no dark mode support
